@@ -67,7 +67,7 @@ body {
 }
 
 .arabic {
-  font-family: "Amiri", serif;
+  font-family: "Amiri", serif !important;
   direction: rtl;
   line-height: 1.9;
   letter-spacing: 0;
