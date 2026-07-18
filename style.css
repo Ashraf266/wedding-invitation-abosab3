@@ -66,6 +66,13 @@ body {
   visibility: hidden;
 }
 
+.arabic {
+  font-family: "Amiri", serif;
+  direction: rtl;
+  line-height: 1.9;
+  letter-spacing: 0;
+}
+
 /* ── Pelmet / Valance ── */
 .pelmet {
   position: absolute;
@@ -363,6 +370,9 @@ body {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.tap-hint.hide {
+  display: none;
 }
 
 @keyframes hint-blink {

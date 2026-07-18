@@ -8,10 +8,14 @@ function openCurtains() {
   var curtainRight = document.getElementById("curtainRight");
   var envScr = document.getElementById("env-screen");
   var invScr = document.getElementById("inv-screen");
+  var tapHint = document.querySelector(".tap-hint");
 
   // Step 1: draw back the curtains
   curtainLeft.classList.add("open");
   curtainRight.classList.add("open");
+
+  console.log(tapHint);
+  tapHint.classList.add("hide");
 
   // Step 2: reveal invitation behind the curtains
   setTimeout(function () {
