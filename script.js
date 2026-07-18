@@ -14,7 +14,6 @@ function openCurtains() {
   curtainLeft.classList.add("open");
   curtainRight.classList.add("open");
 
-  console.log(tapHint);
   tapHint.classList.add("hide");
 
   // Step 2: reveal invitation behind the curtains
