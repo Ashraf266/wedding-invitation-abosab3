@@ -1,103 +1,131 @@
 let opened = false;
 
-function openEnvelope() {
+function openCurtains() {
   if (opened) return;
   opened = true;
 
-  const seal   = document.getElementById('seal');
-  const flap   = document.getElementById('envFlap');
-  const card   = document.getElementById('envCard');
-  const envScr = document.getElementById('env-screen');
-  const invScr = document.getElementById('inv-screen');
+  var curtainLeft = document.getElementById("curtainLeft");
+  var curtainRight = document.getElementById("curtainRight");
+  var envScr = document.getElementById("env-screen");
+  var invScr = document.getElementById("inv-screen");
 
-  // Step 1: break the wax seal
-  seal.classList.add('pop');
+  // Step 1: draw back the curtains
+  curtainLeft.classList.add("open");
+  curtainRight.classList.add("open");
 
-  // Step 2: open the flap
-  setTimeout(function() {
-    flap.classList.add('open');
-  }, 310);
+  // Step 2: reveal invitation behind the curtains
+  setTimeout(function () {
+    envScr.classList.add("hide");
+    invScr.classList.add("show");
+    invScr.setAttribute("aria-hidden", "false");
 
-  // Step 3: rise the card
-  setTimeout(function() {
-    card.classList.add('rise');
-  }, 820);
-
-  // Step 4: reveal invitation
-  setTimeout(function() {
-    envScr.classList.add('hide');
-    invScr.classList.add('show');
-    invScr.setAttribute('aria-hidden', 'false');
-    // Double rAF forces display:block to paint before opacity transition fires
-    requestAnimationFrame(function() {
-      requestAnimationFrame(function() {
-        invScr.style.opacity = '1';
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        invScr.style.opacity = "1";
       });
     });
-    initReveal();
-  }, 1620);
 
-  // Step 5: remove envelope from layout entirely
-  setTimeout(function() {
-    envScr.style.display = 'none';
+    initReveal();
+    startCountdown();
+  }, 1500);
+
+  // Step 3: remove curtain screen from layout entirely
+  setTimeout(function () {
+    envScr.style.display = "none";
   }, 2600);
 }
 
 function initReveal() {
-  var els = document.querySelectorAll('#inv-screen .reveal');
-  var io = new IntersectionObserver(function(entries) {
-    entries.forEach(function(e) {
-      if (e.isIntersecting) {
-        e.target.classList.add('in-view');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.06 });
-  els.forEach(function(el) { io.observe(el); });
+  var els = document.querySelectorAll("#inv-screen .reveal");
+  var io = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in-view");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.06 },
+  );
+  els.forEach(function (el) {
+    io.observe(el);
+  });
 }
 
-// ── Wishes Form ────────────────────────────────────────────────
+/* ── Countdown ──────────────────────────────────────── */
+function startCountdown() {
+  // Wedding: August 29, 2026 — set time to start of evening (7pm Cairo, UTC+3 → 16:00 UTC)
+  var weddingDate = new Date("2026-08-29T16:00:00Z");
+
+  function tick() {
+    var now = new Date();
+    var diff = weddingDate - now;
+
+    if (diff <= 0) {
+      // Wedding day!
+      document.getElementById("cdDays").textContent = "0";
+      document.getElementById("cdHours").textContent = "0";
+      document.getElementById("cdMins").textContent = "0";
+      document.getElementById("cdSecs").textContent = "0";
+      return;
+    }
+
+    var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("cdDays").textContent = days;
+    document.getElementById("cdHours").textContent = pad(hours);
+    document.getElementById("cdMins").textContent = pad(mins);
+    document.getElementById("cdSecs").textContent = pad(secs);
+  }
+
+  function pad(n) {
+    return n < 10 ? "0" + n : n;
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* ── Wishes Form ────────────────────────────────────── */
 (function () {
-  var form     = document.getElementById('wishesForm');
-  var iframe   = document.getElementById('wishesIframe');
-  var success  = document.getElementById('wishesSuccess');
-  var textarea = document.getElementById('guestMessage');
-  var counter  = document.getElementById('charCount');
+  var form = document.getElementById("wishesForm");
+  var iframe = document.getElementById("wishesIframe");
+  var success = document.getElementById("wishesSuccess");
+  var textarea = document.getElementById("guestMessage");
+  var counter = document.getElementById("charCount");
 
   if (!form) return;
 
-  // Live character counter
   if (textarea && counter) {
-    textarea.addEventListener('input', function () {
+    textarea.addEventListener("input", function () {
       counter.textContent = textarea.value.length;
     });
   }
 
-  // Form submit — post into hidden iframe so the page never navigates away
   var submitted = false;
 
-  form.addEventListener('submit', function () {
+  form.addEventListener("submit", function () {
     if (submitted) return;
     submitted = true;
 
-    var btn = form.querySelector('.submit-btn span');
-    var btnEl = form.querySelector('.submit-btn');
-    if (btn) btn.textContent = 'Sending\u2026';
+    var btn = form.querySelector(".submit-btn span");
+    var btnEl = form.querySelector(".submit-btn");
+    if (btn) btn.textContent = "Sending\u2026";
     if (btnEl) btnEl.disabled = true;
 
     function showSuccess() {
-      if (success.classList.contains('visible')) return;
-      form.style.display = 'none';
-      success.classList.add('visible');
-      success.setAttribute('aria-hidden', 'false');
-      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (success.classList.contains("visible")) return;
+      form.style.display = "none";
+      success.classList.add("visible");
+      success.setAttribute("aria-hidden", "false");
+      success.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
-    // Primary: listen for the iframe load after Google redirects to its thank-you page
-    iframe.addEventListener('load', showSuccess, { once: true });
-
-    // Fallback: if the iframe event never fires (some browsers block cross-origin load events),
-    // show success after 3 seconds — the POST has already been sent by then
+    iframe.addEventListener("load", showSuccess, { once: true });
     setTimeout(showSuccess, 3000);
   });
-}());
+})();

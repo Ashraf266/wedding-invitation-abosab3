@@ -1,297 +1,342 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohamed &amp; Sara — Wedding Invitation</title>
-  <meta property="og:title" content="You're Invited — Mohamed & Sara's Wedding">
-  <meta property="og:description" content="We joyfully invite you to celebrate our marriage on October 18, 2025.">
-  <meta name="theme-color" content="#C9A84C">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-  <!-- ═══════════════════════════════════════
-       SCREEN 1 · ENVELOPE
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohammed &amp; Mariam — Wedding Invitation</title>
+    <meta
+      property="og:title"
+      content="You're Invited — Mohammed & Mariam's Wedding"
+    />
+    <meta
+      property="og:description"
+      content="We joyfully invite you to celebrate our marriage on August 29, 2026."
+    />
+    <meta name="theme-color" content="#8B1A2A" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════
+       SCREEN 1 · CURTAIN STAGE
   ════════════════════════════════════════ -->
-  <div id="env-screen"
-       onclick="openEnvelope()"
-       role="button"
-       tabindex="0"
-       aria-label="Open your wedding invitation"
-       onkeydown="if(event.key==='Enter'||event.key===' ')openEnvelope()">
 
-    <div class="ring"></div>
-    <div class="ring"></div>
-    <div class="ring"></div>
-
-    <div class="env-wrap">
-      <div class="env-body"></div>
-      <div class="env-btm"></div>
-      <div class="env-card" id="envCard">
-        <span class="card-initials">M &amp; S</span>
+    <div
+      id="env-screen"
+      onclick="openCurtains()"
+      role="button"
+      tabindex="0"
+      aria-label="Open your wedding invitation"
+      onkeydown="
+        if (event.key === 'Enter' || event.key === ' ') openCurtains();
+      "
+    >
+      <p class="tap-hint">✦ &nbsp; Tap to reveal your invitation &nbsp; ✦</p>
+      <!-- Curtains -->
+      <div class="curtain curtain-left" id="curtainLeft">
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <!-- Rose cluster left -->
+        <div class="curtain-roses">
+          <!-- <div class="rose r1">🌹</div>
+        <div class="rose r2">🌸</div>
+        <div class="rose r3">🌹</div>
+        <div class="rose r4">🌸</div>
+        <div class="rose r5">🌹</div> -->
+        </div>
       </div>
-      <div class="seal" id="seal">&#x2665;</div>
-      <div class="env-flap" id="envFlap"></div>
+      <div class="curtain curtain-right" id="curtainRight">
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <div class="curtain-fold"></div>
+        <!-- Rose cluster right -->
+        <div class="curtain-roses">
+          <!-- <div class="rose r1">🌹</div>
+        <div class="rose r2">🌸</div>
+        <div class="rose r3">🌹</div>
+        <div class="rose r4">🌸</div>
+        <div class="rose r5">🌹</div> -->
+        </div>
+      </div>
+
+      <!-- Pelmet / valance across the top -->
+      <div class="pelmet">
+        <div class="pelmet-fringe"></div>
+        <div class="pelmet-tassel t1"></div>
+        <div class="pelmet-tassel t2"></div>
+        <div class="pelmet-tassel t3"></div>
+        <div class="pelmet-tassel t4"></div>
+        <div class="pelmet-tassel t5"></div>
+      </div>
+
+      <!-- Centre content behind curtains -->
+      <div class="stage-content">
+        <p class="stage-label">You are cordially invited</p>
+        <h1 class="stage-names">M <span class="stage-amp">&amp;</span> M</h1>
+        <!-- <p class="tap-hint">✦ &nbsp; Tap to reveal your invitation &nbsp; ✦</p> -->
+      </div>
     </div>
 
-    <p class="tap-hint">&#10022; &nbsp; Tap to open your invitation &nbsp; &#10022;</p>
-  </div>
-
-
-  <!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
        SCREEN 2 · INVITATION
   ════════════════════════════════════════ -->
-  <div id="inv-screen" aria-hidden="true">
-
-    <!-- Header -->
-    <header class="inv-header reveal">
-      <p class="eyebrow">Together with their families</p>
-      <h1 class="names">Mohamed <span class="amp">&amp;</span> Sara</h1>
-      <p class="subtitle">
-        joyfully invite you to celebrate their marriage<br>
-        and the beginning of their new life together
-      </p>
-    </header>
-
-    <div class="divider">
-      <div class="ln"></div>
-      <div class="dia sm"></div>
-      <div class="dia"></div>
-      <div class="dia sm"></div>
-      <div class="ln r"></div>
-    </div>
-
-    <!-- Date & Schedule -->
-    <section class="inv-section reveal">
-      <p class="sec-label">Save the Date</p>
-      <h2 class="sec-title">The Wedding Day</h2>
-      <div class="date-card">
-        <div class="day-num">18</div>
-        <div class="month-year">October &nbsp;&middot;&nbsp; 2025</div>
-        <div class="day-name">Saturday</div>
-        <div class="timeline">
-          <div class="tl-item">
-            <span class="tl-time">4:00 PM</span>
-            <div class="tl-spine">
-              <div class="tl-dot"></div>
-              <div class="tl-line"></div>
-            </div>
-            <div class="tl-content">
-              <div class="tl-name">Wedding Ceremony</div>
-              <div class="tl-detail">Please be seated by 3:45 PM</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <span class="tl-time">5:30 PM</span>
-            <div class="tl-spine">
-              <div class="tl-dot"></div>
-              <div class="tl-line"></div>
-            </div>
-            <div class="tl-content">
-              <div class="tl-name">Cocktail Hour</div>
-              <div class="tl-detail">Drinks &amp; canapés in the garden</div>
-            </div>
-          </div>
-          <div class="tl-item">
-            <span class="tl-time">7:00 PM</span>
-            <div class="tl-spine">
-              <div class="tl-dot"></div>
-              <div class="tl-line"></div>
-            </div>
-            <div class="tl-content">
-              <div class="tl-name">Reception Dinner</div>
-              <div class="tl-detail">Dinner, dancing &amp; celebration until midnight</div>
-            </div>
-          </div>
-        </div>
+    <div id="inv-screen" aria-hidden="true">
+      <!-- Floating rose petals background decoration -->
+      <div class="petal-bg" aria-hidden="true">
+        <span class="petal p1">🌹</span>
+        <span class="petal p2">🌸</span>
+        <span class="petal p3">🌹</span>
+        <span class="petal p4">🌸</span>
+        <span class="petal p5">🌹</span>
+        <span class="petal p6">🌸</span>
+        <span class="petal p7">🌹</span>
+        <span class="petal p8">🌸</span>
       </div>
-    </section>
 
-    <div class="divider">
-      <div class="ln"></div>
-      <div class="dia sm"></div>
-      <div class="dia"></div>
-      <div class="dia sm"></div>
-      <div class="ln r"></div>
-    </div>
-
-    <!-- Venue -->
-    <section class="inv-section reveal">
-      <p class="sec-label">The Venue</p>
-      <h2 class="sec-title">Where to Find Us</h2>
-      <div class="venue-card">
-        <div class="venue-name">The Grand Palace Ballroom</div>
-        <div class="venue-addr">
-          1 Palace Boulevard<br>
-          Cairo, Egypt<br><br>
-          Valet parking is available
+      <!-- Header -->
+      <header class="inv-header reveal">
+        <div class="header-roses" aria-hidden="true">
+          <span class="hr-rose hl">🌹</span>
+          <span class="hr-rose hr">🌹</span>
         </div>
-      </div>
-    </section>
-
-    <div class="divider">
-      <div class="ln"></div>
-      <div class="dia sm"></div>
-      <div class="dia"></div>
-      <div class="dia sm"></div>
-      <div class="ln r"></div>
-    </div>
-
-    <!-- Location -->
-    <section class="inv-section reveal">
-      <p class="sec-label">Getting There</p>
-      <h2 class="sec-title">Location</h2>
-      <div class="map-card">
-        <!--
-          Replace the src below with your own Google Maps embed URL:
-          1. Go to maps.google.com and search your venue
-          2. Click Share → Embed a map → Copy HTML
-          3. Paste the full src="..." value here
-        -->
-        <div class="map-embed">
-          <iframe
-            src="https://www.google.com/maps?q=The+Grand+Palace+Cairo+Egypt&output=embed"
-            allowfullscreen
-            loading="lazy"
-            title="Venue location on Google Maps">
-          </iframe>
-        </div>
-        <div class="map-footer">
-          <div class="map-venue-name">The Grand Palace Ballroom</div>
-          <div class="map-address">1 Palace Boulevard, Cairo, Egypt</div>
-          <a href="https://maps.google.com/?q=The+Grand+Palace+Cairo+Egypt"
-             target="_blank" rel="noopener noreferrer" class="directions-btn">
-            Get Directions
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <div class="divider">
-      <div class="ln"></div>
-      <div class="dia sm"></div>
-      <div class="dia"></div>
-      <div class="dia sm"></div>
-      <div class="ln r"></div>
-    </div>
-
-    <!-- Dress Code -->
-    <section class="inv-section reveal">
-      <p class="sec-label">Dress Code</p>
-      <h2 class="sec-title">Black Tie</h2>
-      <p class="sec-body">
-        We kindly request formal attire for the evening.<br>
-        Ladies: floor-length gown or formal dress.<br>
-        Gentlemen: tuxedo or dark suit &amp; tie.
-      </p>
-    </section>
-
-    <div class="divider">
-      <div class="ln"></div>
-      <div class="dia sm"></div>
-      <div class="dia"></div>
-      <div class="dia sm"></div>
-      <div class="ln r"></div>
-    </div>
-
-    <!-- RSVP -->
-    <section class="inv-section reveal">
-      <p class="sec-label">Kindly Reply By September 1st, 2025</p>
-      <h2 class="sec-title">Will You Join Us?</h2>
-      <p class="sec-body">
-        We would be honoured by your presence.<br>
-        Please let us know so we may prepare<br>for your arrival.
-      </p>
-      <a href="mailto:rsvp@example.com?subject=RSVP — Mohamed %26 Sara's Wedding"
-         class="rsvp-btn">Confirm Attendance</a>
-    </section>
-
-    <div class="divider">
-      <div class="ln"></div>
-      <div class="dia sm"></div>
-      <div class="dia"></div>
-      <div class="dia sm"></div>
-      <div class="ln r"></div>
-    </div>
-
-    <!-- Wishes Form -->
-    <!--
-      HOW TO CONNECT YOUR GOOGLE FORM:
-      1. Go to forms.google.com → create a new form
-      2. Add a Short answer field called "Name"
-      3. Add a Paragraph field called "Message"
-      4. Click the 3-dot menu → "Get pre-filled link"
-      5. Fill in any test values → click "Get Link" → copy the URL
-      6. In that URL, find entry.XXXXXXXXXX=... — those numbers are your entry IDs
-      7. Replace FORM_ID, NAME_ENTRY_ID, and MESSAGE_ENTRY_ID below
-    -->
-    <section class="inv-section reveal">
-      <p class="sec-label">Leave a Message</p>
-      <h2 class="sec-title">Send Your Wishes</h2>
-      <p class="sec-body">
-        We'd love to hear from you. Share your wishes<br>
-        and we'll treasure them always.
-      </p>
-
-      <form id="wishesForm" class="wishes-form"
-            method="POST"
-            action="https://docs.google.com/forms/d/e/1FAIpQLSe6hF6zHxV-668LxZIX6T7SUaK1FMvqgnYMrnwKscVhQpcaQg/formResponse"
-            target="wishes-iframe">
-
-        <div class="form-field">
-          <label for="guestName">Your Name</label>
-          <input type="text"
-                 id="guestName"
-                 name="entry.380288107"
-                 placeholder="Enter your name"
-                 required
-                 maxlength="100"
-                 autocomplete="name">
-        </div>
-
-        <div class="form-field">
-          <label for="guestMessage">Your Message</label>
-          <textarea id="guestMessage"
-                    name="entry.878198649"
-                    placeholder="Write your wishes for the happy couple…"
-                    required
-                    maxlength="500"
-                    rows="4"></textarea>
-          <span class="char-count"><span id="charCount">0</span> / 500</span>
-        </div>
-
-        <button type="submit" class="submit-btn">
-          <span>Send Wishes</span>
-        </button>
-      </form>
-
-      <!-- Success message, hidden until form submits -->
-      <div id="wishesSuccess" class="wishes-success" aria-hidden="true">
-        <div class="success-icon">&#x2665;</div>
-        <p class="success-title">Thank You!</p>
-        <p class="success-body">
-          Your wishes have been received.<br>
-          We're so grateful you'll be celebrating with us.
+        <p class="eyebrow">Together with their families</p>
+        <h1 class="names">
+          Mohammed <span class="stage-amp">&amp;</span> Mariam
+        </h1>
+        <p class="subtitle">
+          joyfully invite you to celebrate their marriage<br />
+          and the beginning of their new life together
         </p>
+        <div class="rose-divider" aria-hidden="true">
+          🌸 &nbsp; 🌹 &nbsp; 🌸
+        </div>
+      </header>
+
+      <div class="divider">
+        <div class="ln"></div>
+        <div class="dia sm"></div>
+        <div class="dia"></div>
+        <div class="dia sm"></div>
+        <div class="ln r"></div>
       </div>
 
-      <!-- Hidden iframe captures the Google Form response so the page doesn't navigate away -->
-      <iframe name="wishes-iframe" id="wishesIframe" style="display:none;" title="form target"></iframe>
-    </section>
+      <!-- Countdown -->
+      <section class="inv-section reveal">
+        <p class="sec-label">Counting Down To Forever</p>
+        <h2 class="sec-title">The Big Day</h2>
+        <div class="countdown-wrap">
+          <div class="cd-unit">
+            <div class="cd-num" id="cdDays">--</div>
+            <div class="cd-lbl">Days</div>
+          </div>
+          <div class="cd-sep">🌹</div>
+          <div class="cd-unit">
+            <div class="cd-num" id="cdHours">--</div>
+            <div class="cd-lbl">Hours</div>
+          </div>
+          <div class="cd-sep">🌹</div>
+          <div class="cd-unit">
+            <div class="cd-num" id="cdMins">--</div>
+            <div class="cd-lbl">Minutes</div>
+          </div>
+          <div class="cd-sep">🌹</div>
+          <div class="cd-unit">
+            <div class="cd-num" id="cdSecs">--</div>
+            <div class="cd-lbl">Seconds</div>
+          </div>
+        </div>
+      </section>
 
-    <!-- Footer -->
-    <footer class="inv-footer">
-      <span class="footer-ornament">&#10022;</span>
-      <div class="footer-names">Mohamed &amp; Sara</div>
-      <p class="footer-tag">October 18 &nbsp;&middot;&nbsp; 2025 &nbsp;&middot;&nbsp; Cairo</p>
-    </footer>
+      <div class="divider">
+        <div class="ln"></div>
+        <div class="dia sm"></div>
+        <div class="dia"></div>
+        <div class="dia sm"></div>
+        <div class="ln r"></div>
+      </div>
 
-  </div>
+      <!-- Date -->
+      <section class="inv-section reveal">
+        <p class="sec-label">Save the Date</p>
+        <h2 class="sec-title">The Wedding Day</h2>
+        <div class="date-card">
+          <!-- <div class="date-roses" aria-hidden="true">🌹</div> -->
+          <div class="day-num">29</div>
+          <div class="month-year">August &nbsp;&middot;&nbsp; 2026</div>
+          <div class="day-name">Friday</div>
+          <!-- <div class="date-roses" aria-hidden="true">🌹</div> -->
+        </div>
+      </section>
 
-  <script src="script.js"></script>
-</body>
+      <div class="divider">
+        <div class="ln"></div>
+        <div class="dia sm"></div>
+        <div class="dia"></div>
+        <div class="dia sm"></div>
+        <div class="ln r"></div>
+      </div>
+
+      <!-- Venue -->
+      <section class="inv-section reveal">
+        <p class="sec-label">The Venue</p>
+        <h2 class="sec-title">Where to Find Us</h2>
+        <div class="venue-card">
+          <!-- <div class="venue-rose" aria-hidden="true">🌹</div> -->
+          <div class="venue-name">Perla Hall</div>
+          <div class="venue-sub">دار المدرعات</div>
+          <div class="venue-addr">Cairo, Egypt</div>
+        </div>
+      </section>
+
+      <div class="divider">
+        <div class="ln"></div>
+        <div class="dia sm"></div>
+        <div class="dia"></div>
+        <div class="dia sm"></div>
+        <div class="ln r"></div>
+      </div>
+
+      <!-- Location / Map -->
+      <section class="inv-section reveal">
+        <p class="sec-label">Getting There</p>
+        <h2 class="sec-title">Location</h2>
+        <div class="map-card">
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.0!2d31.3!3d30.06!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzM2LjAiTiAzMcKwMTgnMDAuMCJF!5e0!3m2!1sen!2seg!4v1700000000000!5m2!1sen!2seg"
+              allowfullscreen
+              loading="lazy"
+              title="Venue location on Google Maps"
+            >
+            </iframe>
+          </div>
+          <div class="map-footer">
+            <div class="map-venue-name">Perla Hall — دار المدرعات</div>
+            <div class="map-address">Cairo, Egypt</div>
+            <a
+              href="https://maps.app.goo.gl/ptB2qhVJfJpgUJ2PA"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="directions-btn"
+            >
+              Get Directions
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- <div class="divider">
+        <div class="ln"></div>
+        <div class="dia sm"></div>
+        <div class="dia"></div>
+        <div class="dia sm"></div>
+        <div class="ln r"></div>
+      </div> -->
+
+      <!-- RSVP -->
+      <!-- <section class="inv-section reveal"> -->
+      <!-- <p class="sec-label">Kindly Reply By August 15th, 2026</p> -->
+      <!-- <h2 class="sec-title">Will You Join Us?</h2> -->
+      <!-- <p class="sec-body"> -->
+      <!-- We would be honoured by your presence.<br /> -->
+      <!-- Please let us know so we may prepare<br />for your arrival. -->
+      <!-- </p> -->
+      <!-- <div class="rsvp-btn">Confirm Attendance</div> -->
+      <!-- </section> -->
+
+      <!-- <div class="divider">
+        <div class="ln"></div>
+        <div class="dia sm"></div>
+        <div class="dia"></div>
+        <div class="dia sm"></div>
+        <div class="ln r"></div>
+      </div> -->
+
+      <!-- Wishes Form -->
+      <section class="inv-section reveal">
+        <p class="sec-label">Leave a Message</p>
+        <h2 class="sec-title">Send Your Wishes</h2>
+        <p class="sec-body">
+          We'd love to hear from you. Share your wishes<br />
+          and we'll treasure them always.
+        </p>
+
+        <form
+          id="wishesForm"
+          class="wishes-form"
+          method="POST"
+          action="https://docs.google.com/forms/d/e/1FAIpQLSe6hF6zHxV-668LxZIX6T7SUaK1FMvqgnYMrnwKscVhQpcaQg/formResponse"
+          target="wishes-iframe"
+        >
+          <div class="form-field">
+            <label for="guestName">Your Name</label>
+            <input
+              type="text"
+              id="guestName"
+              name="entry.380288107"
+              placeholder="Enter your name"
+              required
+              maxlength="100"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="guestMessage">Your Message</label>
+            <textarea
+              id="guestMessage"
+              name="entry.878198649"
+              placeholder="Write your wishes for the happy couple…"
+              required
+              maxlength="500"
+              rows="4"
+            ></textarea>
+            <span class="char-count"><span id="charCount">0</span> / 500</span>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Send Wishes 🌹</span>
+          </button>
+        </form>
+
+        <div id="wishesSuccess" class="wishes-success" aria-hidden="true">
+          <div class="success-icon">🌹</div>
+          <p class="success-title">Thank You!</p>
+          <p class="success-body">
+            Your wishes have been received.<br />
+            We're so grateful you'll be celebrating with us.
+          </p>
+        </div>
+
+        <iframe
+          name="wishes-iframe"
+          id="wishesIframe"
+          style="display: none"
+          title="form target"
+        ></iframe>
+      </section>
+
+      <!-- Footer -->
+      <footer class="inv-footer">
+        <!-- <div class="footer-roses" aria-hidden="true">🌹 🌸 🌹</div> -->
+        <div class="footer-names">Mohammed &amp; Mariam</div>
+        <p class="footer-tag">
+          August 29 &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; Cairo
+        </p>
+        <!-- <div class="footer-roses" style="margin-top:18px" aria-hidden="true">🌸 🌹 🌸</div> -->
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
